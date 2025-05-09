@@ -2,10 +2,6 @@
 
 ![CI](https://github.com/bogdan2ko/qa_internship/actions/workflows/tests.yml/badge.svg)
 
-![UI tests](https://github.com/<USER>/<REPO>/actions/workflows/test.yml/badge.svg)
-
-
-
 
 > Demonstrates practical use of Selenium WebDriver, Pytest, Pydantic and Allure.
 
