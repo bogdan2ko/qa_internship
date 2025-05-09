@@ -21,7 +21,8 @@ class LoginPage(BasePage):
     "//a[text()='Logout' or text()='Logoff']"
 )
 
-    _ERROR    = (By.CSS_SELECTOR, ".alert")
+    _ERROR = (By.CSS_SELECTOR, ".alert, .alert-danger, .alert-warning")
+
 
     # -------- actions --------
     @allure.step("Открываем страницу логина")

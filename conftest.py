@@ -23,7 +23,7 @@ def pytest_addoption(parser):
 
 
 # ── browser fixture ────────────────────────────────────────────────────────────
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser(request):
     headed = request.config.getoption("--headed")
 
