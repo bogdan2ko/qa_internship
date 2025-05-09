@@ -1,0 +1,9 @@
+pytest
+pytest-docker
+pytest-xdist
+allure-pytest
+selenium
+webdriver-manager
+requests
+sqlalchemy
+pydantic
