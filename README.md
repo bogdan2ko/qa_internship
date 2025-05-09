@@ -51,3 +51,7 @@ pytest -s tests/api           # API suite
 # 4 · Allure report
 pytest -s --alluredir=allure-results
 allure serve allure-results
+
+
+![CI](https://github.com/<your‑nick>/<repo>/actions/workflows/tests.yml/badge.svg)
+
