@@ -33,6 +33,11 @@ Result in Allure: **4 / 4 passed • 0 failed • 0 broken**.
 
 ---
 
+## Manual QA docs
+* [Test cases](docs/Test-cases.md)
+* [Bug reports](docs/Bug-reports.md)
+
+
 ## Quick Start (local)
 
 ```bash
