@@ -6,6 +6,7 @@
 
 
 
+
 > Demonstrates practical use of Selenium WebDriver, Pytest, Pydantic and Allure.
 
 ---
