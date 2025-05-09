@@ -1,9 +1,26 @@
 version: "3.9"
+
 services:
-  tests:
-    build: .
   chrome:
     image: selenium/standalone-chrome:latest
-    shm_size: 2g
+    shm_size: 2gb
     ports:
       - "4444:4444"
+
+    # 🔹 проверяем /status раз в 3 с, 10 попыток
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4444/status"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+
+  tests:
+    build: .
+    depends_on:
+      chrome:
+        condition: service_healthy    # ← ждать, пока healthcheck зелёный
+    environment:
+      - SELENIUM_HOST=chrome
+      - SELENIUM_PORT=4444
+      - ATS_USER=${ATS_USER}
+      - ATS_PASS=${ATS_PASS}

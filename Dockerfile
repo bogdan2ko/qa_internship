@@ -1,6 +1,12 @@
 FROM python:3.11-slim
-WORKDIR /opt/app
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+
+WORKDIR /code
 COPY . .
-CMD ["pytest", "-n", "auto"]
+
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# run UI tests against the remote Chrome in the selenium container
+CMD pytest tests/ui -q \
+    --driver Remote \
+    --capability browserName chrome \
+    --selenium-host chrome --selenium-port 4444

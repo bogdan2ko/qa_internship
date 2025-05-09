@@ -8,3 +8,4 @@ requests
 sqlalchemy
 pydantic
 python-dotenv>=1.0
+pytest-selenium==4.1.0 
