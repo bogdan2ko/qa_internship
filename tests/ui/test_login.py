@@ -2,6 +2,7 @@ import allure
 from pages.login_page import LoginPage
 from conftest import USERNAME, PASSWORD
 
+
 @allure.title("Позитивный логин")
 def test_login_positive(browser):
     page = LoginPage(browser)

@@ -16,6 +16,7 @@ load_dotenv()
 USERNAME = os.getenv("ATS_USER")
 PASSWORD = os.getenv("ATS_PASS")
 
+
 # ────────────────── CLI flag: --headed ───────────────────────
 def pytest_addoption(parser):
     parser.addoption(
@@ -29,7 +30,7 @@ def pytest_addoption(parser):
 def _create_local(headed: bool):
     opts = Options()
     if not headed:
-        opts.add_argument("--headless=new")          # Chrome ≥109
+        opts.add_argument("--headless=new")  # Chrome ≥109
     opts.add_argument("--window-size=1920,1080")
 
     service = Service(ChromeDriverManager().install())
@@ -52,12 +53,12 @@ def browser(request):
     headed = request.config.getoption("--headed")
 
     # If SELENIUM_HOST is defined (e.g. inside docker-compose), use Remote
-    selenium_host = os.getenv("SELENIUM_HOST")        # "chrome" in compose
+    selenium_host = os.getenv("SELENIUM_HOST")  # "chrome" in compose
     selenium_port = os.getenv("SELENIUM_PORT", "4444")
 
-    if selenium_host:                                 # Remote grid mode
+    if selenium_host:  # Remote grid mode
         driver = _create_remote(headed, selenium_host, selenium_port)
-    else:                                             # Local Chrome
+    else:  # Local Chrome
         driver = _create_local(headed)
 
     driver.implicitly_wait(5)
@@ -77,8 +78,9 @@ def pytest_runtest_makereport(item, call):
         if drv:
             try:
                 png = drv.get_screenshot_as_png()
-                allure.attach(png, name="failure",
-                              attachment_type=allure.attachment_type.PNG)
+                allure.attach(
+                    png, name="failure", attachment_type=allure.attachment_type.PNG
+                )
             except InvalidSessionIdException:
                 # session already closed – skip
                 pass

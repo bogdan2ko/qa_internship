@@ -6,6 +6,7 @@ from pages.base_page import BasePage, TimeoutException
 
 class LoginPage(BasePage):
     """Страница логина AutomationTestStore."""
+
     URL = "https://automationteststore.com/index.php?rt=account/login"
 
     _USERNAME = (By.ID, "loginFrm_loginname")
@@ -14,21 +15,15 @@ class LoginPage(BasePage):
     # замените текущий _SUBMIT на:
     _SUBMIT = (By.CSS_SELECTOR, "#loginFrm button.btn-orange[title='Login']")
 
-
-
-    _LOGOUT = (
-    By.XPATH,
-    "//a[text()='Logout' or text()='Logoff']"
-)
+    _LOGOUT = (By.XPATH, "//a[text()='Logout' or text()='Logoff']")
 
     _ERROR = (By.CSS_SELECTOR, ".alert, .alert-danger, .alert-warning")
-
 
     # -------- actions --------
     @allure.step("Открываем страницу логина")
     def open(self):
         self.driver.get(self.URL)
-        self._visible(self._USERNAME)          # ждём поля username
+        self._visible(self._USERNAME)  # ждём поля username
 
     @allure.step("Вводим имя пользователя: {username}")
     def set_username(self, username: str):

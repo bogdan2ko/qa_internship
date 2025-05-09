@@ -1,4 +1,5 @@
 """Pydantic‑схема для объекта user из https://reqres.in"""
+
 from pydantic import BaseModel, HttpUrl, EmailStr, Field
 
 

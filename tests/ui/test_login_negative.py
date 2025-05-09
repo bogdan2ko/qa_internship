@@ -6,9 +6,10 @@ from conftest import USERNAME, PASSWORD
 
 invalid_cases = [
     pytest.param(USERNAME, "wrong_pass", id="wrong password"),
-    pytest.param("",        PASSWORD,    id="empty username"),
-    pytest.param(USERNAME, "",           id="empty password"),
+    pytest.param("", PASSWORD, id="empty username"),
+    pytest.param(USERNAME, "", id="empty password"),
 ]
+
 
 @allure.title("Негативные сценарии логина")
 @pytest.mark.parametrize("username,password", invalid_cases)
@@ -22,5 +23,3 @@ def test_login_negative(browser, username, password):
 
     # главное условие: ссылка Logout/Logoff не появилась
     assert not page.is_logged_in(), "Должны остаться без авторизации"
-
-    

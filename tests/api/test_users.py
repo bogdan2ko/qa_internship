@@ -3,11 +3,13 @@ import requests
 from pydantic import BaseModel
 import allure
 
+
 class User(BaseModel):
     id: int
     name: str
     username: str
     email: str
+
 
 @allure.title("Fetch users and validate response with Pydantic")
 def test_get_users():

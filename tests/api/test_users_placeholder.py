@@ -19,4 +19,3 @@ def test_get_users():
     # schema & typing for each item
     for item in r.json():
         User.model_validate(item)
-

@@ -1,5 +1,6 @@
 """Универсальный wrapper над requests.Response
    Позволяет цепочечной записью проверять статус‑код и валидировать тело через Pydantic."""
+
 from typing import Type
 from pydantic import BaseModel
 
