@@ -1,5 +1,6 @@
 # QA Internship – UI & API Automation Demo
 
+![CI](https://github.com/bogdan2ko/qa_internship/actions/workflows/tests.yml/badge.svg)
 
 > Demonstrates practical use of Selenium WebDriver, Pytest, Pydantic and Allure.
 
