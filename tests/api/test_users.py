@@ -1,20 +1,19 @@
-"""API‑тест с валидацией ответа через Pydantic"""
+# tests/api/test_users.py
 import requests
+from pydantic import BaseModel
 import allure
 
-from src.baseclasses.response import Response
-from src.pydantic_schemas.user import UserData
+class User(BaseModel):
+    id: int
+    name: str
+    username: str
+    email: str
 
-@allure.title("Получаем список пользователей (Reqres) и валидируем схему")
+@allure.title("Fetch users and validate response with Pydantic")
 def test_get_users():
-    r = requests.get("https://reqres.in/api/users", params={"page": 2})
+    r = requests.get("https://jsonplaceholder.typicode.com/users")
 
-    response = Response(r)
+    assert r.status_code == 200, f"Unexpected status: {r.status_code}"
 
-    # Проверяем статус‑код и валидируем JSON через Pydantic‑схему
-    response.validate_status_code(200).validate(UserData)
-
-    # parsed_object будет содержать последний валидный объект из списка
-    user = response.get_parsed_object()
-    assert user.id > 0
-    assert "@" in user.email
+    for item in r.json():
+        User.model_validate(item)

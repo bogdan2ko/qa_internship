@@ -23,3 +23,6 @@ jobs:
           ATS_USER: ${{ secrets.ATS_USER }}
           ATS_PASS: ${{ secrets.ATS_PASS }}
         run: pytest tests/ui -q  # -q = quiet, headless идёт по умолчанию
+      
+      - name: Run API tests
+        run: pytest tests/api -q -s -v 
