@@ -6,7 +6,7 @@
 
 | ID    | Test Case                    | Steps                                                                                  | Expected Result                                             | Priority |
 |-------|------------------------------|----------------------------------------------------------------------------------------|-------------------------------------------------------------|----------|
-| TC-01 | Login with valid credentials | 1. Go to login page  
+| TC-01 | Login with valid credentials | 1. Go to login page  | User is logged in and sees the dashboard                                   | High     |
 2. Enter valid username  
 3. Enter valid password  
 4. Click **Login**               | User is logged in and sees the dashboard                                   | High     |
