@@ -12,7 +12,6 @@ class LoginPage(BasePage):
     _USERNAME = (By.ID, "loginFrm_loginname")
     _PASSWORD = (By.ID, "loginFrm_password")
     # универсальный: любой submit‑input внутри формы
-    # замените текущий _SUBMIT на:
     _SUBMIT = (By.CSS_SELECTOR, "#loginFrm button.btn-orange[title='Login']")
 
     _LOGOUT = (By.XPATH, "//a[text()='Logout' or text()='Logoff']")

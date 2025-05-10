@@ -1,9 +1,55 @@
-# Functional test cases – AutomationTestStore
+# Manual Test Cases
 
-| ID  | Title              | Pre‑conditions                                   | Steps (❶…❹)                                                                                                   | Expected result                                             | Priority |
-|-----|--------------------|--------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|----------|
-| TC‑001 | **Login – valid creds** | Пользователь зарегистрирован (bogdan2ko1) | 1. Открыть /account/login <br>2. Ввести *Username* = bogdan2ko1 <br>3. Ввести *Password* = ***** <br>4. Нажать **Login** | Переход на Dashboard; в хедере отображается **Logout** | P1 |
-| TC‑002 | **Login – wrong password** | – | 1. /account/login <br>2. Username = bogdan2ko1 <br>3. Password = wrong_pass <br>4. **Login** | Появляется alert “Incorrect login or password” | P1 |
-| TC‑003 | **Registration – mandatory only** | Email ещё не зарегистрирован | 1. /account/create <br>2. Заполнить поля (*) <br>3. Submit | Пользователь создан; автоматический логин | P2 |
-| TC‑004 | **Product search (full match)** | – | 1. В хедере ввести “Skinsheen” <br>2. Нажать **Search** | Отображается каталог, 1 позиция “Skinsheen...” | P2 |
-| TC‑005 | **Add‑to‑cart & checkout** | Авторизован | 1. Открыть товар *Seaweed Conditioner* <br>2. **Add to cart** <br>3. Перейти в Cart <br>4. **Checkout** до шага Payment | Order summary показывает выбранный товар и цену | P1 |
+Below are manual check-lists for key user scenarios.
+
+---
+
+### Login
+
+| ID     | Test Case                      | Steps                                                                                   | Expected Result                                           | Priority |
+|--------|--------------------------------|-----------------------------------------------------------------------------------------|-----------------------------------------------------------|----------|
+| TC-01  | Login with valid credentials   | 1. Navigate to the login page  
+2. Enter a valid username  
+3. Enter a valid password  
+4. Click **Login**                      | User is successfully logged in and redirected to dashboard | High     |
+
+---
+
+### Registration
+
+| ID     | Test Case                           | Steps                                                                                     | Expected Result                                                       | Priority |
+|--------|-------------------------------------|-------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|----------|
+| TC-02  | Register with valid data            | 1. Navigate to the registration page  
+2. Fill in all required fields with valid information  
+3. Click **Submit**                        | Account is created and a confirmation email is sent to the user              | High     |
+
+---
+
+### Search Product
+
+| ID     | Test Case                           | Steps                                                                                     | Expected Result                                               | Priority |
+|--------|-------------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------|
+| TC-03  | Search for an existing product      | 1. Navigate to the homepage  
+2. Enter a product name (e.g., “Laptop”) in the search field  
+3. Click **Search**                       | Search results display products matching the query “Laptop”                     | Medium   |
+
+---
+
+### Add to Cart
+
+| ID     | Test Case                           | Steps                                                                                     | Expected Result                                               | Priority |
+|--------|-------------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------|
+| TC-04  | Add a product to the shopping cart  | 1. Locate a product via search or category  
+2. On the product page, click **Add to cart**  
+3. Open the shopping cart                   | Product appears in the cart and the cart icon item count increments by one     | Medium   |
+
+---
+
+### Checkout
+
+| ID     | Test Case                           | Steps                                                                                     | Expected Result                                               | Priority |
+|--------|-------------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------------------------------|----------|
+| TC-05  | Complete the checkout process       | 1. Go to the shopping cart  
+2. Click **Checkout**  
+3. Enter shipping and payment details  
+4. Click **Place Order**                   | Order confirmation page is displayed with the order number                     | High     |

@@ -1,25 +1,52 @@
-# Bug reports – AutomationTestStore (sample)
+# Bug Reports
 
-## BUG‑01  Reset Password → HTTP 500
+## Bug 1: Reset Password Returns 500 Error
 
-| Field | Value |
-|-------|-------|
-| **Summary** | “Forgot Password” form returns 500 |
-| **Env** | Prod · Chrome 136 · Win 11 |
-| **Steps** | 1. /account/forgotten<br>2. Email = *any registered*<br>3. Submit |
-| **Actual result** | Blank page, HTTP 500 in DevTools |
-| **Expected result** | Success message “Password reset email sent” |
-| **Severity** | Major (S2) |
+**Summary**  
+When a user tries to reset their password, the application returns a 500 Internal Server Error.
+
+**Steps to Reproduce**  
+1. Go to the **Login** page.  
+2. Click **Forgot Password**.  
+3. Enter a valid email address (e.g. `user@example.com`).  
+4. Click **Submit**.
+
+**Actual Result**  
+A “500 Internal Server Error” page is displayed.
+
+**Expected Result**  
+A confirmation message “Password reset email sent” appears and no server error occurs.
+
+**Severity**  
+Major
+
+**Environment**  
+- OS: Windows 10  
+- Browser: Chrome 112.0.5615.49  
+- Application version: QA Demo v1.0  
 
 ---
 
-## BUG‑02  Cart quantity not updated after refresh
+## Bug 2: Search with Special Characters Shows Blank Page
 
-| Field | Value |
-|-------|-------|
-| **Summary** | Cart badge stays at “1” after item removal (F5) |
-| **Env** | Prod · Firefox 125 · Ubuntu 22.04 |
-| **Steps** | 1. Добавить любой товар<br>2. Перейти в Cart<br>3. Remove → Cart empty<br>4. F5 |
-| **Actual result** | Значок корзины в хедере всё ещё “1” |
-| **Expected result** | Значок = “0”/не отображается |
-| **Severity** | Minor (S3) |
+**Summary**  
+Entering only special characters into the product search field leaves the results area blank instead of showing a “no results” message.
+
+**Steps to Reproduce**  
+1. Navigate to the **Home** page.  
+2. In the search field, type `@#$%^&*`.  
+3. Click **Search**.
+
+**Actual Result**  
+The page reloads and the product listing area is completely empty (no feedback).
+
+**Expected Result**  
+A “No results found” message should be displayed when the query returns zero products.
+
+**Severity**  
+Minor
+
+**Environment**  
+- OS: Windows 10  
+- Browser: Firefox 115.0.1  
+- Application version: QA Demo v1.0  
